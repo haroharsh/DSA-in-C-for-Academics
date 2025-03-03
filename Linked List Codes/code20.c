@@ -1,0 +1,43 @@
+//Adding node at end in doubly linked list
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    struct node *prev;
+    int data;
+    struct node *next;
+};
+
+struct node *add_at_end(struct node *head, int data)
+{
+    struct node *temp = (struct node *)malloc(sizeof(struct node));
+    struct node *p = head;
+    temp->prev = NULL;
+    temp->data = data;
+    temp->next = NULL;
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = temp;
+    temp->prev = p;
+    return head;
+}
+
+int main()
+{
+    struct node *head = (struct node *)malloc(sizeof(struct node));
+    head->prev = NULL;
+    head->data = 45;
+    head->next = NULL;
+
+    head = add_at_end(head, 10);
+    
+    struct node *temp = head;
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    return 0;
+}
