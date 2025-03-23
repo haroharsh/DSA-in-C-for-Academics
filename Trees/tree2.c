@@ -1,4 +1,4 @@
-// Create a tree
+// Create a full binary tree  
 
 #include<stdio.h>
 #include<stdlib.h>
