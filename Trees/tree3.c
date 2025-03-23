@@ -1,4 +1,5 @@
-// Create a full binary tree  
+// Inorder Traversal of a Binary Search Tree
+
 #include<stdio.h>
 #include<stdlib.h>
 struct node
@@ -35,6 +36,13 @@ struct node *insertNode(struct node *root, int data)
     }
     return root;
 }
+void inorderTraversal(struct node* root) {
+    if (root != NULL) {
+        inorderTraversal(root->left);
+        printf("%d ", root->data);
+        inorderTraversal(root->right);
+    }
+}
 
 int main(){
     struct node *root = NULL;
@@ -45,5 +53,9 @@ int main(){
     insertNode(root, 40);
     insertNode(root, 60);
     insertNode(root, 80);
+
+    printf("Inorder traversal: ");
+    inorderTraversal(root);
+    printf("\n");
     return 0;
 }
