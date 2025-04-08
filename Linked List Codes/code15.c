@@ -46,3 +46,16 @@ int main(){
     }
     return 0;
 }
+//code for swapping two adjacent nodes in a linked list
+struct node* swap_adjacent(struct node *head)
+{
+    struct node *temp=head;
+    while(temp!=NULL && temp->link!=NULL)
+    {
+        int t=temp->data;
+        temp->data=temp->link->data;
+        temp->link->data=t;
+        temp=temp->link->link;
+    }
+    return head;
+}

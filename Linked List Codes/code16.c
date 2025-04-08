@@ -51,3 +51,14 @@ int main(){
     }
     return 0;
 }
+struct node* middle(struct node *head)
+{
+    struct node *slow=head;
+    struct node *fast=head;
+    while(fast!=NULL && fast->link!=NULL)
+    {
+        slow=slow->link;
+        fast=fast->link->link;
+    }
+    return slow;
+}
